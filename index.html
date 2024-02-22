@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <style>
+              body{
+                     display: flex; 
+                     justify-content: center;
+                     align-items: center;
+                     min-height: 100vh;
+                     overflow: hidden;
+                     background-image: url(1.jpg);
+                     background-position: center;   /*move to next branch*/
+                     background-repeat: no-repeat;
+                     background-size: cover;
+              }
+              #myh1{
+                  display: flex;
+                  gap: 40px;
+                  color:white;
+                 
+                 background-color:pink ;
+                  padding: 10px;
+                 
+              }
+              .div{
+                     background:linear-gradient(135deg,#14ffe9,plum,#ff00e0); 
+              }
+       </style>
+</head>
+<body>
+       <div class="div">
+                 <h1 id="myh1"></h1>
+       </div>
+       <script>
+            const par=document.getElementById("myh1");
+              function clock(){
+                     let Date1=new Date();
+                     let hr=Date1.getHours();
+                     let min=Date1.getMinutes();
+                     let sec=Date1.getSeconds();
+                     let value=hr;
+                     hr=(hr<10) ? "0" + hr: hr;
+                     hr=(hr>12) ? hr-12 : hr;
+                     min=(min<10) ? "0" + min: min;
+                     sec=(sec<10) ? "0" + sec: sec;
+                     let times=`${hr}:${min}:${sec}`;
+                     if(value>=12){
+
+                            par.textContent=`${times} AM `;
+                     }
+                     else{
+                            par.textContent=`${times} PM `;
+                     }
+                    
+              }
+           
+             setInterval(clock,1000); 
+       </script>
+</body>
+</html>
